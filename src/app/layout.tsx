@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Varela_Round, Puritan } from "next/font/google";
-import { SiteNav } from "@/components/SiteNav";
-import { SiteFooter } from "@/components/SiteFooter";
 import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -31,13 +31,9 @@ const puritan = Puritan({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "Codever — Built for systems that can't afford to break",
-    template: "%s — Codever",
-  },
+  title: "Codever — Built for systems that can't afford to break",
   description:
     "Codever guides the evolution of complex digital systems, integrating AI to enable new capabilities while keeping systems stable, understandable, and under control.",
-  metadataBase: new URL("https://codever.it"),
 };
 
 export default function RootLayout({
@@ -48,13 +44,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${varelaRound.variable} ${puritan.variable}`}
     >
-      <body>
-        <div className="relative z-[1] flex min-h-screen flex-col">
-          <SiteNav />
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
-        </div>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
