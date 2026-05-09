@@ -1,0 +1,24 @@
+.logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: calc(0.28em);
+  line-height: 1;
+  color: var(--paper);
+  white-space: nowrap;
+}
+
+.br {
+  font-family: var(--f-bracket);
+  font-weight: 400;
+  color: var(--paper-2);
+  font-size: 1.1em;
+}
+
+.word {
+  font-family: var(--f-mark);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+.invert { color: var(--ink-000); }
+.invert .br { color: var(--indigo); }
