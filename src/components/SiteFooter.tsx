@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
-import styles from "./SiteFooter.module.css";
+import { Badge, Container } from "./ui";
 
 const cols = [
   {
@@ -35,43 +35,48 @@ const cols = [
 
 export function SiteFooter() {
   return (
-    <footer className={styles.wrap}>
-      <div className="container">
-        <div className={styles.frame}>
-          <div className={styles.top}>
-            <div className={styles.brandBlock}>
+    <footer className="relative z-[1] pt-24 pb-16">
+      <Container>
+        <div className="rounded-xl border border-line-08 bg-ink-050 p-14 max-md:p-10 max-sm:p-7">
+          <div className="grid grid-cols-[1.5fr_1fr_1fr_1fr] gap-12 border-b border-line-08 pb-8 max-md:grid-cols-2 max-sm:grid-cols-1 max-sm:gap-8">
+            <div className="flex flex-col items-start gap-5">
               <Logo size={28} />
-              <p>
+              <p className="m-0 max-w-[32ch] text-sm leading-[1.55] text-paper-3">
                 Technical partner for complex systems. Control, clarity,
                 reliability, long-term evolution.
               </p>
-              <span className="badge live">
-                <span className="dot" />Accepting selected briefs
-              </span>
+              <Badge tone="live">Accepting selected briefs</Badge>
             </div>
             {cols.map((c) => (
-              <div key={c.title} className={styles.col}>
-                <h5>{c.title}</h5>
-                <ul>
+              <div key={c.title}>
+                <h5 className="m-0 mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.08em] text-paper-4">
+                  {c.title}
+                </h5>
+                <ul className="m-0 flex list-none flex-col gap-3 p-0">
                   {c.links.map((l) => (
                     <li key={l.label}>
-                      <Link href={l.href}>{l.label}</Link>
+                      <Link
+                        href={l.href}
+                        className="text-sm text-paper-2 transition-colors duration-150 hover:text-paper"
+                      >
+                        {l.label}
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
           </div>
-          <div className={styles.bottom}>
+          <div className="flex items-center justify-between gap-6 pt-6 font-mono text-xs text-paper-4 max-sm:flex-col max-sm:items-start">
             <span>© {new Date().getFullYear()} Codever — part of Mirror group</span>
-            <div className={styles.right}>
+            <div className="flex gap-6">
               <span>Privacy</span>
               <span>Cookie</span>
               <span>v1.0</span>
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

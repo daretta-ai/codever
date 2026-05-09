@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHeader, GroupLockup, CTABanner } from "@/components/modules";
+import { BlockHeader, Container, Section } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Structure",
@@ -10,8 +11,8 @@ export const metadata: Metadata = {
 export default function StructurePage() {
   return (
     <>
-      <section className="block" style={{ paddingTop: 96 }}>
-        <div className="container">
+      <Section pad="tight" noBorder>
+        <Container>
           <PageHeader
             index="05"
             section="STRUCTURE"
@@ -19,38 +20,30 @@ export default function StructurePage() {
             emphasis="structure."
             lead="Codever + Mirror — combinando architettura, design e strategia. Operiamo come un sistema integrato, non come una somma di fornitori."
           />
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      <section className="block">
-        <div className="container">
-          <div className="block-head">
-            <div className="block-index">
-              <span className="num">01</span> GROUP
-            </div>
-            <div className="block-title">
-              <h2>
-                Codever × Mirror. <em>Operating as one integrated system.</em>
-              </h2>
-              <p>
-                Architecture · Design · Strategy. Tre dimensioni di intervento,
-                una stessa cadenza decisionale.
-              </p>
-            </div>
-          </div>
-
+      <Section>
+        <Container>
+          <BlockHeader
+            index="01"
+            label="GROUP"
+            title="Codever × Mirror."
+            emphasis="Operating as one integrated system."
+            lead="Architecture · Design · Strategy. Tre dimensioni di intervento, una stessa cadenza decisionale."
+          />
           <GroupLockup variant="large" />
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      <section className="block">
-        <div className="container">
+      <Section>
+        <Container>
           <CTABanner
             title="When the system needs more than"
             emphasis="architecture alone."
           />
-        </div>
-      </section>
+        </Container>
+      </Section>
     </>
   );
 }

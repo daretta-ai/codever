@@ -5,6 +5,7 @@ import {
   Manifesto,
   CTABanner,
 } from "@/components/modules";
+import { BlockHeader, Container, Section } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Approach",
@@ -12,11 +13,34 @@ export const metadata: Metadata = {
     "How we make technical decisions. Clarity over complexity, validation before implementation, controlled innovation, manageable evolution.",
 };
 
+const pillars = [
+  {
+    num: "P · 01",
+    head: "Clarity over complexity",
+    body: "Un sistema che non si capisce non si governa. La leggibilità è una proprietà architetturale.",
+  },
+  {
+    num: "P · 02",
+    head: "Validation before implementation",
+    body: "Verifichiamo il problema prima di toccare il codice. Spesso la soluzione è non costruire.",
+  },
+  {
+    num: "P · 03",
+    head: "Controlled innovation",
+    body: "L'innovazione (AI inclusa) è una decisione di sistema. Senza controllo, è solo rumore.",
+  },
+  {
+    num: "P · 04",
+    head: "Manageable evolution",
+    body: "Ogni scelta è pensata per restare governabile a 12–24 mesi. Non per il momento.",
+  },
+];
+
 export default function ApproachPage() {
   return (
     <>
-      <section className="block" style={{ paddingTop: 96 }}>
-        <div className="container">
+      <Section pad="tight" noBorder>
+        <Container>
           <PageHeader
             index="03"
             section="APPROACH"
@@ -24,80 +48,48 @@ export default function ApproachPage() {
             emphasis="technical decisions."
             lead="Clarity first. Systems must remain understandable. We prioritize clarity, control, and long-term sustainability — anche quando ciò significa dire di no."
           />
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      {/* Design principles */}
-      <section className="block">
-        <div className="container">
-          <div className="block-head">
-            <div className="block-index">
-              <span className="num">01</span> DESIGN PRINCIPLES
-            </div>
-            <div className="block-title">
-              <h2>
-                Four principles. <em>Non-negotiable.</em>
-              </h2>
-              <p>
-                Clarity over complexity. Validation before implementation.
-                Controlled innovation. Manageable evolution. I principi sono
-                lenti decisionali, non slogan.
-              </p>
-            </div>
+      <Section>
+        <Container>
+          <BlockHeader
+            index="01"
+            label="DESIGN PRINCIPLES"
+            title="Four principles."
+            emphasis="Non-negotiable."
+            lead="Clarity over complexity. Validation before implementation. Controlled innovation. Manageable evolution. I principi sono lenti decisionali, non slogan."
+          />
+          <div className="grid grid-cols-4 gap-6 max-md:grid-cols-2 max-sm:grid-cols-1">
+            {pillars.map((p) => (
+              <div
+                key={p.num}
+                className="border-t border-line-20 py-6"
+              >
+                <div className="font-mono text-[11px] uppercase tracking-[0.06em] text-signal">
+                  {p.num}
+                </div>
+                <h4 className="mt-2 mb-3 font-sans text-lg font-medium leading-[1.3] tracking-[-0.01em] text-paper">
+                  {p.head}
+                </h4>
+                <p className="m-0 text-sm leading-[1.55] text-paper-3">
+                  {p.body}
+                </p>
+              </div>
+            ))}
           </div>
+        </Container>
+      </Section>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
-              gap: 24,
-            }}
-            className="pillars"
-          >
-            <Pillar
-              num="P · 01"
-              head="Clarity over complexity"
-              body="Un sistema che non si capisce non si governa. La leggibilità è una proprietà architetturale."
-            />
-            <Pillar
-              num="P · 02"
-              head="Validation before implementation"
-              body="Verifichiamo il problema prima di toccare il codice. Spesso la soluzione è non costruire."
-            />
-            <Pillar
-              num="P · 03"
-              head="Controlled innovation"
-              body="L'innovazione (AI inclusa) è una decisione di sistema. Senza controllo, è solo rumore."
-            />
-            <Pillar
-              num="P · 04"
-              head="Manageable evolution"
-              body="Ogni scelta è pensata per restare governabile a 12–24 mesi. Non per il momento."
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Decision process */}
-      <section className="block">
-        <div className="container">
-          <div className="block-head">
-            <div className="block-index">
-              <span className="num">02</span> DECISION PROCESS
-            </div>
-            <div className="block-title">
-              <h2>
-                Understand → Validate → Design → Implement →{" "}
-                <em>Evolve.</em>
-              </h2>
-              <p>
-                Cinque passi, una sequenza. Nessuno è opzionale: ogni decisione
-                tecnica passa per tutti — anche quando il calendario suggerisce
-                il contrario.
-              </p>
-            </div>
-          </div>
-
+      <Section>
+        <Container>
+          <BlockHeader
+            index="02"
+            label="DECISION PROCESS"
+            title="Understand → Validate → Design → Implement →"
+            emphasis="Evolve."
+            lead="Cinque passi, una sequenza. Nessuno è opzionale: ogni decisione tecnica passa per tutti — anche quando il calendario suggerisce il contrario."
+          />
           <DecisionProcess
             activeIndex={0}
             steps={[
@@ -128,12 +120,11 @@ export default function ApproachPage() {
               },
             ]}
           />
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      {/* Manifesto pull */}
-      <section className="block">
-        <div className="container">
+      <Section>
+        <Container>
           <Manifesto
             mark="[ trade-offs ]"
             pre="We prioritize"
@@ -141,66 +132,14 @@ export default function ApproachPage() {
             highlight="sustainability."
             attrib="CODEVER · DECISION MODEL"
           />
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      <section className="block">
-        <div className="container">
+      <Section>
+        <Container>
           <CTABanner />
-        </div>
-      </section>
+        </Container>
+      </Section>
     </>
-  );
-}
-
-function Pillar({
-  num,
-  head,
-  body,
-}: {
-  num: string;
-  head: string;
-  body: string;
-}) {
-  return (
-    <div
-      style={{
-        padding: "24px 0",
-        borderTop: "1px solid var(--line-20)",
-      }}
-    >
-      <div
-        style={{
-          fontFamily: "var(--f-mono)",
-          fontSize: 11,
-          color: "var(--signal)",
-          letterSpacing: "0.06em",
-        }}
-      >
-        {num}
-      </div>
-      <h4
-        style={{
-          fontFamily: "var(--f-sans)",
-          fontWeight: 500,
-          fontSize: 18,
-          lineHeight: 1.3,
-          margin: "8px 0 12px",
-          letterSpacing: "-0.01em",
-        }}
-      >
-        {head}
-      </h4>
-      <p
-        style={{
-          color: "var(--paper-3)",
-          fontSize: 14,
-          lineHeight: 1.55,
-          margin: 0,
-        }}
-      >
-        {body}
-      </p>
-    </div>
   );
 }
