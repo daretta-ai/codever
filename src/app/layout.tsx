@@ -49,9 +49,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${varelaRound.variable} ${puritan.variable}`}
     >
       <body>
-        <div className="shell">
+        <div className="relative z-[1] flex min-h-screen flex-col">
           <SiteNav />
-          <main>{children}</main>
+          <main className="flex-1">{children}</main>
           <SiteFooter />
         </div>
       </body>

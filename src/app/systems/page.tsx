@@ -5,6 +5,7 @@ import {
   CapList,
   CTABanner,
 } from "@/components/modules";
+import { BlockHeader, Container, Section } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Systems",
@@ -15,8 +16,8 @@ export const metadata: Metadata = {
 export default function SystemsPage() {
   return (
     <>
-      <section className="block" style={{ paddingTop: 96 }}>
-        <div className="container">
+      <Section pad="tight" noBorder>
+        <Container>
           <PageHeader
             index="02"
             section="SYSTEMS"
@@ -24,28 +25,18 @@ export default function SystemsPage() {
             emphasis="complex systems."
             lead="Da audit tecnico a evoluzione architetturale — Codever interviene su sistemi sotto pressione di performance, integrazioni complesse, capacità AI da abilitare e legacy da far evolvere senza rotture."
           />
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      {/* Intervention framework */}
-      <section className="block">
-        <div className="container">
-          <div className="block-head">
-            <div className="block-index">
-              <span className="num">01</span> ENTRY POINTS
-            </div>
-            <div className="block-title">
-              <h2>
-                We start from understanding. <em>Not from implementation.</em>
-              </h2>
-              <p>
-                Audit tecnico, mappatura dei flussi, replica del sistema. Ogni
-                intervento parte dalla stessa cadenza:{" "}
-                <em>Context → Problem → Intervention → Result.</em>
-              </p>
-            </div>
-          </div>
-
+      <Section>
+        <Container>
+          <BlockHeader
+            index="01"
+            label="ENTRY POINTS"
+            title="We start from understanding."
+            emphasis="Not from implementation."
+            lead="Audit tecnico, mappatura dei flussi, replica del sistema. Ogni intervento parte dalla stessa cadenza: Context → Problem → Intervention → Result."
+          />
           <Framework
             steps={[
               {
@@ -74,27 +65,18 @@ export default function SystemsPage() {
               },
             ]}
           />
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      {/* Capabilities */}
-      <section className="block">
-        <div className="container">
-          <div className="block-head">
-            <div className="block-index">
-              <span className="num">02</span> WHAT WE DO
-            </div>
-            <div className="block-title">
-              <h2>
-                Five capabilities. <em>One discipline.</em>
-              </h2>
-              <p>
-                Ci occupiamo di architettura, non di feature. Ogni capability è
-                un tipo di intervento — non un servizio impacchettato.
-              </p>
-            </div>
-          </div>
-
+      <Section>
+        <Container>
+          <BlockHeader
+            index="02"
+            label="WHAT WE DO"
+            title="Five capabilities."
+            emphasis="One discipline."
+            lead="Ci occupiamo di architettura, non di feature. Ogni capability è un tipo di intervento — non un servizio impacchettato."
+          />
           <CapList
             items={[
               {
@@ -124,17 +106,17 @@ export default function SystemsPage() {
               },
             ]}
           />
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      <section className="block">
-        <div className="container">
+      <Section>
+        <Container>
           <CTABanner
             title="Operating model:"
             emphasis="ownership of technical decisions."
           />
-        </div>
-      </section>
+        </Container>
+      </Section>
     </>
   );
 }

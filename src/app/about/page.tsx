@@ -5,6 +5,7 @@ import {
   GroupLockup,
   CTABanner,
 } from "@/components/modules";
+import { BlockHeader, Container, Section } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "About",
@@ -15,8 +16,8 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="block" style={{ paddingTop: 96 }}>
-        <div className="container">
+      <Section pad="tight" noBorder>
+        <Container>
           <PageHeader
             index="04"
             section="ABOUT"
@@ -24,28 +25,18 @@ export default function AboutPage() {
             emphasis="system responsibility."
             lead="Team of engineers focused on backend and architecture. Tech leaders guide each project. We work on high-load, critical systems where clients rely on us for reliability and continuity."
           />
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      {/* Team card */}
-      <section className="block">
-        <div className="container">
-          <div className="block-head">
-            <div className="block-index">
-              <span className="num">01</span> TEAM
-            </div>
-            <div className="block-title">
-              <h2>
-                Engineering-led. <em>Tech-leader per project.</em>
-              </h2>
-              <p>
-                Operatività centrata su backend e architettura. Lavoriamo dove
-                gli errori hanno costi reali e la continuità è una promessa, non
-                una metrica.
-              </p>
-            </div>
-          </div>
-
+      <Section>
+        <Container>
+          <BlockHeader
+            index="01"
+            label="TEAM"
+            title="Engineering-led."
+            emphasis="Tech-leader per project."
+            lead="Operatività centrata su backend e architettura. Lavoriamo dove gli errori hanno costi reali e la continuità è una promessa, non una metrica."
+          />
           <TeamCard
             label="TEAM · ENGINEERING-LED"
             title="Built for long-term system responsibility."
@@ -56,38 +47,27 @@ export default function AboutPage() {
               { key: "Avg. relationship length", value: "4+", unit: "yr" },
             ]}
           />
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      {/* Extended structure */}
-      <section className="block">
-        <div className="container">
-          <div className="block-head">
-            <div className="block-index">
-              <span className="num">02</span> EXTENDED STRUCTURE
-            </div>
-            <div className="block-title">
-              <h2>
-                Codever è parte del gruppo Mirror.{" "}
-                <em>Architecture, design, strategy — un sistema integrato.</em>
-              </h2>
-              <p>
-                Quando l&rsquo;intervento richiede più di sola architettura
-                tecnica, attiviamo il gruppo. Stesso standard di responsabilità,
-                competenze adiacenti.
-              </p>
-            </div>
-          </div>
-
+      <Section>
+        <Container>
+          <BlockHeader
+            index="02"
+            label="EXTENDED STRUCTURE"
+            title="Codever è parte del gruppo Mirror."
+            emphasis="Architecture, design, strategy — un sistema integrato."
+            lead="Quando l'intervento richiede più di sola architettura tecnica, attiviamo il gruppo. Stesso standard di responsabilità, competenze adiacenti."
+          />
           <GroupLockup />
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      <section className="block">
-        <div className="container">
+      <Section>
+        <Container>
           <CTABanner />
-        </div>
-      </section>
+        </Container>
+      </Section>
     </>
   );
 }

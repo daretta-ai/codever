@@ -6,6 +6,7 @@ import {
   CTABanner,
   Manifesto,
 } from "@/components/modules";
+import { BlockHeader, Container, Section } from "@/components/ui";
 
 export default function HomePage() {
   return (
@@ -13,24 +14,15 @@ export default function HomePage() {
       <Hero />
 
       {/* System context */}
-      <section className="block">
-        <div className="container">
-          <div className="block-head">
-            <div className="block-index">
-              <span className="num">01</span> SYSTEM CONTEXT
-            </div>
-            <div className="block-title">
-              <h2>
-                Systems grow. <em>Complexity follows.</em>
-              </h2>
-              <p>
-                Performance degrades. Integrations become fragile. Data flows
-                lose consistency. AI becomes a requirement — and a risk if not
-                properly understood or controlled.
-              </p>
-            </div>
-          </div>
-
+      <Section>
+        <Container>
+          <BlockHeader
+            index="01"
+            label="SYSTEM CONTEXT"
+            title="Systems grow."
+            emphasis="Complexity follows."
+            lead="Performance degrades. Integrations become fragile. Data flows lose consistency. AI becomes a requirement — and a risk if not properly understood or controlled."
+          />
           <Triplet
             lines={[
               {
@@ -50,42 +42,29 @@ export default function HomePage() {
               },
             ]}
           />
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      {/* Manifesto pull */}
-      <section className="block">
-        <div className="container">
+      <Section>
+        <Container>
           <Manifesto
             pre="Without control,"
             italic="innovation creates"
             highlight="fragility."
             attrib="CODEVER · DESIGN PRINCIPLE 01"
           />
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      {/* Responsibility scope */}
-      <section className="block">
-        <div className="container">
-          <div className="block-head">
-            <div className="block-index">
-              <span className="num">02</span> RESPONSIBILITY SCOPE
-            </div>
-            <div className="block-title">
-              <h2>
-                We take responsibility for{" "}
-                <em>architectural decisions, not just implementation.</em>
-              </h2>
-              <p>
-                We validate requirements before building, removing unnecessary
-                complexity and aligning every decision with the system as a
-                whole. We don&rsquo;t implement by default — we implement what
-                makes sense for the system.
-              </p>
-            </div>
-          </div>
-
+      <Section>
+        <Container>
+          <BlockHeader
+            index="02"
+            label="RESPONSIBILITY SCOPE"
+            title="We take responsibility for"
+            emphasis="architectural decisions, not just implementation."
+            lead="We validate requirements before building, removing unnecessary complexity and aligning every decision with the system as a whole. We don't implement by default — we implement what makes sense for the system."
+          />
           <ArgList
             items={[
               {
@@ -105,28 +84,18 @@ export default function HomePage() {
               },
             ]}
           />
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      {/* Operational domains */}
-      <section className="block">
-        <div className="container">
-          <div className="block-head">
-            <div className="block-index">
-              <span className="num">03</span> OPERATIONAL DOMAINS
-            </div>
-            <div className="block-title">
-              <h2>
-                Where we intervene. <em>Four domains, one discipline.</em>
-              </h2>
-              <p>
-                Sistemi sotto pressione di performance, piattaforme con
-                integrazioni complesse, sistemi che evolvono con capacità AI,
-                legacy che richiede evoluzione controllata.
-              </p>
-            </div>
-          </div>
-
+      <Section>
+        <Container>
+          <BlockHeader
+            index="03"
+            label="OPERATIONAL DOMAINS"
+            title="Where we intervene."
+            emphasis="Four domains, one discipline."
+            lead="Sistemi sotto pressione di performance, piattaforme con integrazioni complesse, sistemi che evolvono con capacità AI, legacy che richiede evoluzione controllata."
+          />
           <Domains
             items={[
               { tag: "D · 01", title: "Systems under performance pressure" },
@@ -138,15 +107,14 @@ export default function HomePage() {
               },
             ]}
           />
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      {/* CTA */}
-      <section className="block">
-        <div className="container">
+      <Section>
+        <Container>
           <CTABanner />
-        </div>
-      </section>
+        </Container>
+      </Section>
     </>
   );
 }
