@@ -58,7 +58,7 @@ export function SiteFooter() {
             <div className="right">
               <span>Privacy</span>
               <span>Cookie</span>
-              <span>v0.1</span>
+              <span>v0.2</span>
             </div>
           </div>
         </div>
